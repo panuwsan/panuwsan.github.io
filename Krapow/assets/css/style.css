@@ -1,0 +1,199 @@
+/* Krapow Smart Greenhouse - Material Monotone Theme */
+
+:root {
+  /* Soft-eye green palette */
+  --bg: #f5fbf7;           /* soft minty background */
+  --surface: #ffffff;      /* clean white surface */
+  --text: #1f2937;         /* gray-800 */
+  --text-muted: #64748b;   /* slate-500 */
+  --border: #e7f2eb;       /* light greenish border */
+  --hint: #7aa28b;         /* muted green */
+  --primary: #10b981;      /* emerald-500 */
+  --primary-ink: #ffffff;
+  --radius: 12px;
+}
+
+/* Elevation (Material-like) */
+/* Softer, minimal elevations */
+.elevation-1 { box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.elevation-2 { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+
+/* Base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body.app {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 1280px) { .container { max-width: 1240px; } }
+@media (min-width: 1536px) { .container { max-width: 1400px; } }
+
+/* App Bar */
+.app-bar { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
+.app-bar__inner { display: flex; align-items: center; justify-content: center; padding: 14px 0; flex-wrap: wrap; transition: padding 0.2s ease, opacity 0.2s ease, transform 0.2s ease, height 0.2s ease; }
+.app-title { margin: 0; font-size: 20px; font-weight: 600; text-align: center; width: 100%; display: block; }
+
+/* Tabs */
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 8px;
+  padding: 10px 0 12px;
+}
+.tab { width: 100%; text-align: center; }
+@media (max-width: 640px) {
+  .tabs { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* Header responsive stacking */
+@media (max-width: 640px) {
+  .app-bar__inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .app-bar__right { width: 100%; }
+  /* Collapsed state on mobile: hide the title area but keep tabs visible */
+  .app-bar.app-bar--collapsed .app-bar__inner {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    overflow: hidden;
+    pointer-events: none;
+  }
+  /* Ensure tabs remain touch-friendly and visually anchored */
+  .tabs { background: var(--surface); position: relative; z-index: 1; }
+}
+.tab {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.tab:hover { background: #f0fbf5; }
+.tab--active {
+  border-color: #c9e9d7;
+  background: #e6f6ee;
+  color: #065f46;
+  font-weight: 600;
+}
+
+/* Main layout */
+.main { padding: 20px 0; display: grid; gap: 20px; }
+
+/* Metrics grid */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 16px;
+}
+@media (min-width: 640px) { .metrics { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .metrics { grid-template-columns: repeat(4, 1fr); } }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+.card__label { font-size: 13px; color: var(--text-muted); }
+.card__value { margin-top: 6px; font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
+.card__hint { margin-top: 4px; font-size: 12px; color: var(--hint); }
+
+/* Content area with chart and controls */
+.content { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 1024px) { .content { grid-template-columns: 2fr 1fr; } }
+@media (min-width: 1280px) { .content { gap: 28px; } }
+@media (min-width: 1536px) { .content { gap: 32px; } }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+.panel__header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.panel__title { margin: 0; font-size: 16px; font-weight: 600; }
+.panel__meta { font-size: 12px; color: var(--hint); }
+.panel__body { margin-top: 12px; }
+
+.content__chart canvas { width: 100%; height: 260px; }
+@media (min-width: 768px) { .content__chart canvas { height: 300px; } }
+@media (min-width: 1024px) { .content__chart canvas { height: 380px; } }
+@media (min-width: 1280px) { .content__chart canvas { height: 440px; } }
+
+/* Mobile refinements */
+@media (max-width: 480px) {
+  .app-title { font-size: 18px; }
+  .panel__title { font-size: 15px; }
+  .card__value { font-size: 24px; }
+  .controls { grid-template-columns: 1fr 1fr; }
+}
+
+/* Buttons */
+.btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.btn:hover { background: #f0fbf5; border-color: #daf0e3; }
+.btn:active { background: #e6f6ee; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+
+/* Log */
+.log {
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  background: #fbfdfb;
+  border-radius: 8px;
+  padding: 8px;
+  height: 120px;
+  overflow: auto;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Utilities */
+.visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; }
+
+
+/* Control form */
+.control-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+@media (max-width: 640px) {
+  .control-form { grid-template-columns: 1fr; }
+}
+
+.field { display: grid; gap: 6px; }
+.field__label { font-size: 12px; color: var(--text-muted); }
+.input, .select {
+  appearance: none;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+}
+.input:focus, .select:focus { outline: 2px solid #bfead6; outline-offset: 2px; }
+
