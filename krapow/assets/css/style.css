@@ -251,11 +251,14 @@ body.app {
   border-radius: 8px;
   padding: 8px;
   height: 120px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: pre-wrap;       /* keep line breaks, wrap long lines */
+  overflow-wrap: anywhere;     /* break very long tokens/URLs */
+  word-break: break-word;      /* fallback for older browsers */
   font-size: 12px;
   color: var(--text-muted);
 }
-
 
 /* Footer */
 .site-footer {
