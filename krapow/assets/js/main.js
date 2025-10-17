@@ -103,8 +103,6 @@
       });
     });
 
-    // Removed obsolete value DOM updates; gauges display current values
-
     function renderCamera() {
       const img = document.getElementById('cameraImg');
       if (!img) return;

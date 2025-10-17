@@ -9,7 +9,7 @@
   --primary-ink: #ffffff;
   --radius: 12px;
   --footer-bar-h: 36px;    
-  --header-pad: 8px;       /* uniform padding for header/logo */
+  --header-pad: 8px;       
 }
 .app-bar .container { 
   display: grid; 
@@ -41,8 +41,6 @@
 }
 @media (max-width: 640px) { .app-logo { height: 60px; } }
 
-/* Elevation (Material-like) */
-/* Softer, minimal elevations */
 .elevation-1 { box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
 .elevation-2 { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
 
@@ -95,7 +93,6 @@ body.app {
 @media (max-width: 640px) {
   .app-bar__inner { flex-direction: column; align-items: flex-start; gap: 8px; }
   .app-bar__right { width: 100%; }
-  /* Collapsed state on mobile: hide the title area but keep tabs visible */
   .app-bar.app-bar--collapsed .app-bar__inner {
     height: 0;
     padding-top: 0;
@@ -105,7 +102,6 @@ body.app {
     overflow: hidden;
     pointer-events: none;
   }
-  /* Ensure tabs remain touch-friendly and visually anchored */
   .tabs { background: var(--surface); position: relative; z-index: 1; }
 }
 .tab {
@@ -134,7 +130,7 @@ body.app {
   gap: 20px; 
   flex: 1 1 auto; 
 }
-/* Make dashboard full-width without changing other containers */
+
 .main.container { 
   max-width: 100% !important; 
   width: 100%; 
@@ -207,6 +203,9 @@ body.app {
   border-color: #c9e9d7;
   color: #065f46;
 }
+.toggle:hover { background: #065f46; color: #ffffff; border-color: #065f46; }
+.toggle:active { background: #53ad69b2; color: #000000; }
+.toggle:disabled { opacity: 0.6; cursor: not-allowed; }
 
 /* Panel */
 .panel {
@@ -241,8 +240,6 @@ body.app {
 .btn:active {  background: #53ad69b2; color: #000000;}
 .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
-/* Removed old .controls grid (not used) */
-
 /* Log */
 .log {
   margin-top: 8px;
@@ -254,9 +251,9 @@ body.app {
   max-height: 120px !important;
   overflow-y: auto !important;
   overflow-x: hidden !important;
-  white-space: pre-wrap;       /* keep line breaks, wrap long lines */
-  overflow-wrap: anywhere;     /* break very long tokens/URLs */
-  word-break: break-word;      /* fallback for older browsers */
+  white-space: pre-wrap;       
+  overflow-wrap: anywhere;     
+  word-break: break-word;      
   font-size: 12px;
   color: var(--text-muted);
 }
