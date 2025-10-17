@@ -186,8 +186,8 @@ body.app {
 }
 
 /* Controls panel fills remaining height */
-.controls-panel { display: grid; grid-template-rows: auto auto 1fr; }
-.controls-panel .log { height: auto; min-height: 0; }
+.controls-panel { display: grid; grid-template-rows: auto auto auto; }
+.controls-panel .log { height: 120px; min-height: 0; overflow-y: auto; }
 
 /* Toggle buttons */
 .toggles { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
@@ -237,8 +237,8 @@ body.app {
   cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
-.btn:hover { background: #f0fbf5; border-color: #daf0e3; }
-.btn:active { background: #e6f6ee; }
+.btn:hover { background: #065f46; color: #ffffff; border-color: #065f46;  }
+.btn:active {  background: #53ad69b2; color: #000000;}
 .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
 /* Removed old .controls grid (not used) */
@@ -250,9 +250,10 @@ body.app {
   background: #fbfdfb;
   border-radius: 8px;
   padding: 8px;
-  height: 120px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  height: 120px !important;
+  max-height: 120px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
   white-space: pre-wrap;       /* keep line breaks, wrap long lines */
   overflow-wrap: anywhere;     /* break very long tokens/URLs */
   word-break: break-word;      /* fallback for older browsers */
