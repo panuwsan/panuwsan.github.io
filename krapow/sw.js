@@ -1,6 +1,5 @@
-const CACHE_NAME = 'krapow-v2';
+const CACHE_NAME = 'krapow-v4';
 const ASSETS = [
-  'index.html',
   'assets/css/style.css',
   'assets/js/main.js',
   'assets/icons/favicon.ico',
@@ -32,9 +31,26 @@ self.addEventListener('fetch', (e) => {
   if (!url.protocol.startsWith('http')) return;
   if (url.origin !== self.location.origin) return;
 
-  if (ASSETS.some((path) => url.pathname.endsWith(path))) {
+  // Never cache HTML documents: always try network first so updated UI appears.
+  if (e.request.destination === 'document') {
     e.respondWith(
-      caches.match(e.request, { ignoreSearch: true }).then((cached) => cached || fetch(e.request))
+      fetch(e.request)
+        .catch(() => caches.match(e.request))
+    );
+    return;
+  }
+
+  if (ASSETS.some((path) => url.pathname.endsWith(path))) {
+    // Stale-while-revalidate for CSS/JS/icons. Do not ignore search so ?v= works.
+    e.respondWith(
+      caches.match(e.request).then((cached) => {
+        const fetchPromise = fetch(e.request).then((networkResp) => {
+          const clone = networkResp.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(e.request, clone));
+          return networkResp;
+        }).catch(() => cached);
+        return cached || fetchPromise;
+      })
     );
     return;
   }
