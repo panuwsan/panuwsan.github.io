@@ -9,7 +9,6 @@
   --primary-ink: #ffffff;
   --radius: 12px;
   --footer-bar-h: 36px;    
-  --header-pad: 8px;       
 }
 .app-bar .container { 
   display: grid; 
@@ -42,7 +41,6 @@
 @media (max-width: 640px) { .app-logo { height: 60px; } }
 
 .elevation-1 { box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-.elevation-2 { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
 
 /* Base */
 * { box-sizing: border-box; }
@@ -69,13 +67,6 @@ body.app {
   border-bottom: 1px solid var(--border); 
   position: sticky; 
   top: 0; z-index: 50; }
-.app-title { 
-  margin: 0; 
-  font-size: 20px; 
-  font-weight: 600; 
-  text-align: center; 
-  width: 100%; 
-  display: block; }
 
 /* Tabs */
 .tabs {
@@ -91,17 +82,6 @@ body.app {
 
 /* Header responsive stacking */
 @media (max-width: 640px) {
-  .app-bar__inner { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .app-bar__right { width: 100%; }
-  .app-bar.app-bar--collapsed .app-bar__inner {
-    height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    opacity: 0;
-    transform: translateY(-8px);
-    overflow: hidden;
-    pointer-events: none;
-  }
   .tabs { background: var(--surface); position: relative; z-index: 1; }
 }
 .tab {
@@ -223,22 +203,6 @@ body.app {
 @media (max-width: 480px) {
   .panel__title { font-size: 15px; }
 }
-
-/* Buttons */
-.btn {
-  appearance: none;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  border-radius: 10px;
-  padding: 10px 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-.btn:hover { background: #065f46; color: #ffffff; border-color: #065f46;  }
-.btn:active {  background: #53ad69b2; color: #000000;}
-.btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
 /* Log */
 .log {
