@@ -341,7 +341,12 @@ graph TD
     B --> C[css/style.css]
     B --> D[js/main.js]
     B --> F[images/]
+    F --> F1[kp_logo.png]
     B --> G[icons/]
+    G --> G1[favicon.ico]
+    G --> G2[icon-180.png]
+    G --> G3[icon-192.png]
+    G --> G4[icon-512.png]
 ```
 
 ### Development Workflow
