@@ -194,7 +194,7 @@ Krapow/
 │   ├── icons/                 # Application icons and favicon
 │   ├── images/                # Static image assets
 │   ├── tmp/                   # Temporary mock assets (not tracked in production)
-|   └── site.webmanifest           # Web app manifest for PWA installation
+|   └── site.webmanifest       # Web app manifest for PWA installation
 └── sw.js                      # Service worker for PWA capabilities
 ```
 
