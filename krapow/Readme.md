@@ -190,8 +190,7 @@ Krapow/
 │   ├── css/
 │   │   └── style.css          # Main stylesheet with theming and responsive design
 │   ├── js/
-│   │   ├── main.js            # Core application logic
-│   │   └── charts.js          # Chart initialization and updates
+│   │   └── main.js            # Core application logic
 │   ├── icons/                 # Application icons and favicon
 │   ├── images/                # Static image assets
 │   └── tmp/                   # Temporary mock assets (not tracked in production)
@@ -215,11 +214,11 @@ graph TD
     D --> E[css/]
     E --> F[style.css<br/>Stylesheet with green theme, responsive design, and Material elevations]
     D --> G[js/]
-    G --> H[main.js<br/>JavaScript for interactivity, mock data simulation, and Chart.js integration]
+    G --> H[main.js<br/>JavaScript for interactivity, mock data simulation]
     D --> I[icons/]
-    I --> J[favicon.ico<br/>Favicon for browser tabs]
+    I --> J[favicon.ico<br/>Favicon for browser tabs and icon file]
     D --> K[fonts/<br/>Empty - system fonts used]
-    D --> L[images/<br/>Empty - no images used]
+    D --> L[images/<br/>logo file]
 ```
 
 Key files:
@@ -340,7 +339,6 @@ graph TD
     A[index.html] --> B[assets/]
     B --> C[css/style.css]
     B --> D[js/main.js]
-    B --> E[js/charts.js]
     B --> F[images/]
     B --> G[icons/]
 ```
