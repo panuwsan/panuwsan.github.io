@@ -218,7 +218,8 @@ graph TD
     D --> I[icons/]
     I --> J[favicon.ico<br/>Favicon for browser tabs and icon file]
     D --> K[fonts/<br/>Empty - system fonts used]
-    D --> L[images/<br/>logo file]
+    D --> L[images/]
+    L --> M[logo file]
 ```
 
 Key files:
