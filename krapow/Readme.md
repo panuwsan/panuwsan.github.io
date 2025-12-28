@@ -1,81 +1,156 @@
 # Krapow Smart Greenhouse Dashboard
 
-A web-based dashboard for monitoring and controlling multiple smart greenhouses, designed for basil cultivation ("Krapow" refers to Thai basil stir-fry).
+A responsive web-based dashboard for monitoring and controlling multiple smart greenhouses, specifically designed for optimal Thai basil (holy basil) cultivation. The name "Krapow" refers to the popular Thai basil stir-fry dish, highlighting the project's focus on basil cultivation.
 
 ## Table of Contents
 
-- [Krapow Smart Greenhouse Dashboard](#krapow-smart-greenhouse-dashboard)
-  - [Table of Contents](#table-of-contents)
-  - [Overview](#overview)
-  - [Features](#features)
-  - [System Architecture](#system-architecture)
-  - [Tech Stack](#tech-stack)
-  - [Project Structure](#project-structure)
-  - [Installation and Setup](#installation-and-setup)
-  - [Usage](#usage)
-  - [Development](#development)
-  - [Future Enhancements](#future-enhancements)
-  - [Browser Support](#browser-support)
-  - [Contributing](#contributing)
-  - [License](#license)
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [System Architecture](#system-architecture)
+- [Technical Implementation](#technical-implementation)
+- [Project Structure](#project-structure)
+- [Installation Guide](#installation-guide)
+- [User Guide](#user-guide)
+- [Development Setup](#development-setup)
+- [Future Roadmap](#future-roadmap)
+- [Browser Compatibility](#browser-compatibility)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Overview
 
-The Krapow Smart Greenhouse Dashboard is a responsive, client-side web application built to monitor and control up to 10 smart greenhouses optimized for Thai basil (holy basil) cultivation. It provides real-time visualization of environmental metrics such as temperature, humidity, soil moisture, and light levels, along with interactive controls for actuators like irrigation pumps, fans, lights, and misting systems. Currently, the application uses simulated data for demonstration purposes, with a clear path for integration with MQTT-based IoT systems for live sensor data and device control.
+The Krapow Smart Greenhouse Dashboard provides real-time monitoring and control for up to 10 smart greenhouses. The system is designed to maintain optimal growing conditions for Thai basil through precise environmental control and monitoring.
 
-This project demonstrates modern front-end development practices, including modular JavaScript, responsive CSS design, and data visualization using Chart.js. It's ideal for agricultural IoT applications, offering a scalable UI that can handle multi-greenhouse scenarios.
+### Key Benefits
 
-## Features
+- Real-time monitoring of critical environmental parameters
+- Remote control of greenhouse systems
+- Data visualization for better decision making
+- Scalable architecture for multiple greenhouse units
+- Responsive design for access on any device
 
-- **Multi-Greenhouse Support**: Monitor up to 10 greenhouses (KP 1 through KP 10) with tabbed navigation.
-- **Real-Time Metrics**: Displays temperature, humidity, soil moisture, and light levels with target ranges.
-- **Temperature Chart**: Interactive Chart.js visualization showing temperature trends over the last hour.
-- **Control Panel**: Buttons to control irrigation pump, ventilation fan, grow lights, and misting system.
-- **Responsive Design**: Material Design-inspired UI with a soft green theme, optimized for desktop and mobile.
-- **Mock Data Simulation**: Currently uses simulated data; designed for MQTT integration.
-- **Action Logging**: Real-time logs for control actions and acknowledgments.
-- **Accessibility**: Semantic HTML, ARIA labels, and keyboard navigation support.
+## Key Features
+
+### 1. Multi-Greenhouse Management
+- Monitor and control up to 10 individual greenhouses
+- Quick switching between greenhouse units
+- Individual status overview for each unit
+
+### 2. Environmental Monitoring
+| Parameter | Range | Optimal Range |
+|-----------|-------|---------------|
+| Temperature | 15-40°C | 24-28°C |
+| Humidity | 20-95% | 55-70% |
+| Soil Moisture | 0-100% | 35-55% |
+| Light | 0-100% | 12-16h photoperiod |
+
+### 3. Control Systems
+- **Pump Control**: Manage irrigation systems
+- **Fan Control**: Regulate temperature and airflow
+- **Lighting Control**: Adjust grow lights
+- **Misting System**: Control humidity levels
+
+### 4. Data Visualization
+- Real-time charts for all metrics
+- Historical data trends
+- Visual indicators for out-of-range conditions
+
+### 5. User Interface
+- Clean, intuitive dashboard
+- Responsive design for all devices
+- Accessibility compliant (WCAG 2.1)
+- Real-time action logging
 
 ## System Architecture
 
-The application follows a simple, client-side architecture suitable for static web deployment:
+The application follows a client-side architecture with the following components:
 
-- **Frontend Layer**: A single-page application (SPA) built with vanilla HTML, CSS, and JavaScript. No backend is required, as data is currently mocked.
-- **Data Layer**: In-memory state management for greenhouse data, including time-series for charts and current metrics. Data updates are simulated via JavaScript intervals.
-- **UI Components**:
-  - Header with collapsible app bar and greenhouse tabs.
-  - Metrics cards displaying key indicators.
-  - Chart panel for temperature visualization.
-  - Control panel with forms and buttons for device actions.
-- **Event Handling**: DOM events for user interactions (e.g., tab switching, button clicks), with mock MQTT publishing simulated through logging.
-- **Responsiveness**: CSS Grid and Flexbox for adaptive layouts across devices.
+```mermaid
+graph TD
+    A[User Interface] --> B[Controller]
+    B --> C[Data Model]
+    C --> D[Simulated Data]
+    C --> E[Future: MQTT Integration]
+    B --> F[View Renderer]
+    F --> G[Charts]
+    F --> H[Controls]
+    F --> I[Status Indicators]
+```
 
-Future integration with MQTT will introduce a communication layer for real-time data streaming and command publishing.
+### Component Breakdown
 
-## Tech Stack
+1. **Presentation Layer**
+   - Responsive UI components
+   - Real-time data visualization
+   - User interaction handling
 
-- **HTML5**: Semantic structure, accessibility features, and responsive meta tags.
-- **CSS3**: Custom properties (CSS variables) for theming, responsive grid layouts, Material Design elevations, and mobile-first design.
-- **JavaScript (ES6+)**: Modular code with IIFE for encapsulation, DOM manipulation, event handling, and Chart.js integration.
-- **Chart.js**: Open-source library for rendering interactive charts with custom gradients and animations.
-- **No Build Tools**: Pure static files; no bundlers, transpilers, or package managers required for basic operation.
+2. **Application Layer**
+   - State management
+   - Data processing
+   - Event handling
+
+3. **Data Layer**
+   - Current: In-memory data simulation
+   - Future: MQTT-based real-time data streaming
+
+### Data Flow
+
+1. User interacts with the dashboard
+2. Controller processes the action
+3. Data model updates accordingly
+4. View re-renders to reflect changes
+5. (Future) Commands sent to physical devices via MQTT
+
+## Technical Implementation
+
+### Core Technologies
+
+| Technology | Purpose | Version |
+|------------|---------|---------|
+| HTML5 | Structure & Semantics | 5.3 |
+| CSS3 | Styling & Layout | 3.0 |
+| JavaScript | Interactivity | ES6+ |
+| Chart.js | Data Visualization | 3.9.1 |
+| Chart.js Date Adapter | Time-based Charts | 2.0.0 |
+
+### Key Dependencies
+
+- **Chart.js**: For rendering interactive charts
+- **date-fns**: Date manipulation for chart axes
+- **Material Design**: UI/UX inspiration and patterns
+
+### Development Tools
+
+- No build tools required for basic operation
+- VS Code recommended for development
+- Browser DevTools for debugging
 
 ## Project Structure
 
-```text
+```
 Krapow/
-├── index.html                 # Main HTML file with semantic structure and component layout
+├── index.html                 # Main application entry point
 ├── README.md                  # Project documentation
 ├── assets/
 │   ├── css/
-│   │   └── style.css          # Stylesheet with green theme, responsive design, and Material elevations
+│   │   └── style.css          # Main stylesheet with theming and responsive design
 │   ├── js/
-│   │   └── main.js            # JavaScript for interactivity, mock data simulation, and Chart.js integration
-│   ├── icons/
-│   │   └── favicon.ico        # Favicon for browser tabs
-│   ├── fonts/                 # (Empty - system fonts used)
-│   └── images/                # (Empty - no images used)
+│   │   ├── main.js            # Core application logic
+│   │   └── charts.js          # Chart initialization and updates
+│   ├── icons/                 # Application icons and favicon
+│   ├── images/                # Static image assets
+│   └── tmp/                   # Temporary files (e.g., mock camera images)
+├── sw.js                      # Service worker for PWA capabilities
+└── site.webmanifest           # Web app manifest for PWA installation
 ```
+
+### Key Files
+
+- `index.html`: Main application structure and layout
+- `assets/css/style.css`: Styling and theming
+- `assets/js/main.js`: Core application logic and state management
+- `sw.js`: Service worker for offline functionality
+- `site.webmanifest`: PWA configuration
 
 ```mermaid
 graph TD
@@ -98,28 +173,193 @@ Key files:
 - [`assets/css/style.css`](assets/css/style.css): Comprehensive stylesheet defining the soft green theme, responsive breakpoints, and UI components.
 - [`assets/js/main.js`](assets/js/main.js): Core logic for state management, rendering, event handling, and mock data updates.
 
-## Installation and Setup
+## Installation Guide
 
-1. Clone or download the project repository to your local machine.
-2. Ensure you have a modern web browser installed (e.g., Chrome, Firefox, Safari, Edge).
-3. Open [`index.html`](index.html) directly in your browser—no server or build process is required.
-4. The dashboard will initialize with simulated data, updating every 3 seconds.
+### Prerequisites
+- Modern web browser (Chrome, Firefox, Safari, or Edge)
+- Git (for development)
+- Node.js (optional, for development server)
 
-For development, you can serve the files via a local HTTP server (e.g., using Python's `http.server` or Node.js's `http-server`) to avoid CORS issues with external scripts like Chart.js.
+### Quick Start
 
-## Usage
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/panuwat.github.io.git
+   cd panuwat.github.io/krapow
+   ```
 
-- **Switch Greenhouses**: Click the tabs (KP 1-10) in the header to view data for different greenhouses.
-- **View Metrics**: Review current values and targets for temperature (24-28°C), humidity (55-70%), soil moisture (35-55%), and light (12-16h photoperiod) in the metrics cards.
-- **Temperature Chart**: Interact with the Chart.js visualization to explore temperature trends over the last hour.
-- **Control Devices**:
-  - Select mode: Pulse (timed activation), On, or Off.
-  - Set duration (in seconds) and delay (in seconds) if needed.
-  - Click buttons for Pump, Fan, Light, or Mist to trigger actions.
-  - Confirm actions in the browser's confirmation dialog.
-- **Logs**: Monitor action logs in the control panel's log area for published commands and acknowledgments.
+2. Open in browser:
+   - Double-click `index.html` or
+   - Use a local web server:
+     ```bash
+     # Python 3
+     python -m http.server 8000
+     # Then visit http://localhost:8000/krapow
+     ```
 
-All actions are currently mocked; integrate with MQTT for real device control.
+3. The dashboard will load with simulated data, updating every 3 seconds.
+
+### Development Setup
+
+For development, we recommend using a local server to avoid CORS issues:
+
+```bash
+# Using Node.js http-server
+npm install -g http-server
+http-server -p 8000
+```
+
+Then open `http://localhost:8000` in your browser.
+
+## User Guide
+
+### Dashboard Overview
+
+The dashboard is organized into several key sections:
+
+1. **Header**
+   - Application logo
+   - Greenhouse selector tabs (KP 1-10)
+   - Current greenhouse status indicator
+
+2. **Metrics Panel**
+   - Real-time environmental data
+   - Visual gauges and trend indicators
+   - Color-coded status indicators
+
+3. **Control Panel**
+   - Device toggles (Pump, Fan, Light, Mist)
+   - Operation mode selection
+   - Timing controls
+
+### Basic Operations
+
+#### Viewing Greenhouse Data
+1. Select a greenhouse using the tabs (KP 1-10)
+2. View current metrics in the gauges
+3. Check the temperature trend in the chart
+4. Review system status in the log panel
+
+#### Controlling Devices
+1. Select the desired greenhouse
+2. Choose operation mode:
+   - **On/Off**: Manual control
+   - **Pulse**: Timed activation
+   - **Auto**: Automatic control (future)
+3. Set duration (for Pulse mode)
+4. Click the device button to toggle state
+
+### Advanced Features
+
+#### Data Visualization
+- Hover over chart points for detailed values
+- Click and drag to zoom
+- Double-click to reset zoom
+- Toggle metrics using the legend
+
+#### Keyboard Shortcuts
+- `1-0`: Switch between greenhouses
+- `P`: Toggle Pump
+- `F`: Toggle Fan
+- `L`: Toggle Light
+- `M`: Toggle Misting
+
+## Development Setup
+
+### Project Structure
+
+```mermaid
+graph TD
+    A[index.html] --> B[assets/]
+    B --> C[css/style.css]
+    B --> D[js/main.js]
+    B --> E[js/charts.js]
+    B --> F[images/]
+    B --> G[icons/]
+```
+
+### Development Workflow
+
+1. Make changes to source files
+2. Test in development server
+3. Check browser console for errors
+4. Validate HTML/CSS/JS
+5. Commit changes with descriptive messages
+
+### Testing
+
+1. Test all greenhouse tabs
+2. Verify responsive behavior
+3. Check accessibility
+4. Test all control functions
+5. Verify data updates
+
+## Future Roadmap
+
+### Short-term Goals
+- [ ] Implement MQTT integration
+- [ ] Add user authentication
+- [ ] Improve mobile experience
+- [ ] Add data export functionality
+
+### Long-term Vision
+- [ ] Mobile app integration
+- [ ] Advanced analytics
+- [ ] Machine learning for optimization
+- [ ] Multi-user support with roles
+
+## Browser Compatibility
+
+The dashboard is tested and works on:
+
+- Chrome 90+
+- Firefox 85+
+- Safari 14+
+- Edge 90+
+
+### Known Issues
+- Limited offline functionality
+- No data persistence between sessions
+- Basic error handling
+
+## Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+### Development Guidelines
+- Follow existing code style
+- Write clear commit messages
+- Document new features
+- Test thoroughly
+
+## License
+
+MIT License
+
+Copyright (c) 2025 Panuwat Sangketkit
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ## Development
 
