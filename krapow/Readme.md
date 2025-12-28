@@ -1,8 +1,7 @@
 # Krapow Smart Greenhouse Dashboard
 
-A lightweight, client-side PWA dashboard for multi-greenhouse monitoring and control.
-
-A responsive web-based dashboard for monitoring and controlling multiple smart greenhouses, specifically designed for optimal Thai basil (holy basil) cultivation. The name **"Krapow"** refers to the popular Thai basil stir-fry dish, highlighting the project's focus on basil cultivation.
+A lightweight, client-side PWA dashboard for multi-greenhouse monitoring and control,
+specifically designed for optimal Thai basil (holy basil) cultivation.
 
 ## Table of Contents
 
@@ -56,7 +55,7 @@ A responsive web-based dashboard for monitoring and controlling multiple smart g
 The Krapow Smart Greenhouse Dashboard provides real-time monitoring and control for up to 10 smart greenhouses. The system is designed to maintain optimal growing conditions for Thai basil through precise environmental control and monitoring.
 
 - Real-time monitoring of critical environmental parameters
-- Remote control of greenhouse systems
+- Dashboard-based control
 - Data visualization for better decision making
 - Scalable architecture for multiple greenhouse units
 - Responsive design for access on any device
@@ -83,7 +82,13 @@ Disclaimer:
 | `Temperature` | 15-40°C | 24-28°C |
 | `Humidity` | 20-95% | 55-70% |
 | `Soil Moisture` | 0-100% | 35-55% |
-| `Light` | 0-100% | 12-16h photoperiod |
+| `Light Intensity` | 0-100% | 60-80% |
+| `Photoperiod` | 0–24 h | 12–16 h |
+
+> Note: Optimal light conditions for Thai basil are typically defined
+by daily photoperiod (12–16 hours). In the current implementation,
+only relative light intensity (%) is actively simulated;
+photoperiod control is planned for future versions.
 
 ### 3. Control Systems
 
@@ -153,13 +158,13 @@ graph TD
 
 ### Core Technologies
 
-| Technology | Purpose | Version |
-| :--------: | :------- | :-------: |
-| HTML5 | Structure & Semantics | 5.3 |
-| CSS3 | Styling & Layout | 3.0 |
-| JavaScript | Interactivity | ES6+ |
-| Chart.js | Data Visualization | 3.9.1 |
-| Chart.js Date Adapter | Time-based Charts | 2.0.0 |
+| Technology | Purpose |
+| :--------: | :------- |
+| HTML5 | Structure & Semantics |
+| CSS3 | Styling & Layout |
+| JavaScript | Interactivity |
+| Chart.js | Data Visualization |
+| Chart.js Date Adapter | Time-based Charts |
 
 ### Key Dependencies
 
@@ -189,7 +194,7 @@ Krapow/
 │   │   └── charts.js          # Chart initialization and updates
 │   ├── icons/                 # Application icons and favicon
 │   ├── images/                # Static image assets
-│   └── tmp/                   # Temporary files (e.g., mock camera images)
+│   └── tmp/                   # Temporary mock assets (not tracked in production)
 ├── sw.js                      # Service worker for PWA capabilities
 └── site.webmanifest           # Web app manifest for PWA installation
 ```
