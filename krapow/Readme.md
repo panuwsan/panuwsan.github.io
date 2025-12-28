@@ -1,21 +1,53 @@
 # Krapow Smart Greenhouse Dashboard
 
-A responsive web-based dashboard for monitoring and controlling multiple smart greenhouses, specifically designed for optimal Thai basil (holy basil) cultivation. The name "Krapow" refers to the popular Thai basil stir-fry dish, highlighting the project's focus on basil cultivation.
+A lightweight, client-side PWA dashboard for multi-greenhouse monitoring and control.
+
+A responsive web-based dashboard for monitoring and controlling multiple smart greenhouses, specifically designed for optimal Thai basil (holy basil) cultivation. The name **"Krapow"** refers to the popular Thai basil stir-fry dish, highlighting the project's focus on basil cultivation.
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [System Architecture](#system-architecture)
-- [Technical Implementation](#technical-implementation)
-- [Project Structure](#project-structure)
-- [Installation Guide](#installation-guide)
-- [User Guide](#user-guide)
-- [Development Setup](#development-setup)
-- [Future Roadmap](#future-roadmap)
-- [Browser Compatibility](#browser-compatibility)
-- [Contributing](#contributing)
-- [License](#license)
+- [Krapow Smart Greenhouse Dashboard](#krapow-smart-greenhouse-dashboard)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Key Features](#key-features)
+    - [1. Multi-Greenhouse Management](#1-multi-greenhouse-management)
+    - [2. Environmental Monitoring](#2-environmental-monitoring)
+    - [3. Control Systems](#3-control-systems)
+    - [4. Data Visualization](#4-data-visualization)
+    - [5. User Interface](#5-user-interface)
+  - [System Architecture](#system-architecture)
+    - [Component Breakdown](#component-breakdown)
+    - [Data Flow](#data-flow)
+  - [Technical Implementation](#technical-implementation)
+    - [Core Technologies](#core-technologies)
+    - [Key Dependencies](#key-dependencies)
+    - [Development Tools](#development-tools)
+  - [Repository Structure](#repository-structure)
+    - [Key Files](#key-files)
+  - [Installation Guide](#installation-guide)
+    - [Prerequisites](#prerequisites)
+    - [Quick Start](#quick-start)
+    - [Development Setup](#development-setup)
+  - [User Guide](#user-guide)
+    - [Dashboard Overview](#dashboard-overview)
+    - [Basic Operations](#basic-operations)
+      - [Viewing Greenhouse Data](#viewing-greenhouse-data)
+      - [Controlling Devices](#controlling-devices)
+    - [Advanced Features](#advanced-features)
+      - [Data Visualization](#data-visualization)
+      - [Keyboard Shortcuts](#keyboard-shortcuts)
+    - [Project Structure](#project-structure)
+    - [Development Workflow](#development-workflow)
+    - [Testing](#testing)
+  - [Browser Compatibility](#browser-compatibility)
+    - [Known Issues](#known-issues)
+  - [Contributing](#contributing)
+    - [To contribute or extend the project](#to-contribute-or-extend-the-project)
+    - [Development Guidelines](#development-guidelines)
+  - [Future Enhancements](#future-enhancements)
+    - [Short-term Goals](#short-term-goals)
+    - [Long-term Vision](#long-term-vision)
+  - [License](#license)
 
 ---
 
@@ -23,13 +55,16 @@ A responsive web-based dashboard for monitoring and controlling multiple smart g
 
 The Krapow Smart Greenhouse Dashboard provides real-time monitoring and control for up to 10 smart greenhouses. The system is designed to maintain optimal growing conditions for Thai basil through precise environmental control and monitoring.
 
-### Key Benefits
-
 - Real-time monitoring of critical environmental parameters
 - Remote control of greenhouse systems
 - Data visualization for better decision making
 - Scalable architecture for multiple greenhouse units
 - Responsive design for access on any device
+
+Disclaimer:
+
+> **Note**: Current implementation uses simulated data and UI-level controls.
+> Hardware integration (MQTT) is planned for future versions.
 
 ---
 
@@ -197,6 +232,8 @@ Key files:
 - Modern web browser (Chrome, Firefox, Safari, or Edge)
 - Git (for development)
 - Node.js (optional, for development server)
+  
+**Note**: If testing PWA features, clear browser cache or unregister service workers when updating files.
 
 ### Quick Start
 
@@ -321,24 +358,6 @@ graph TD
 
 ---
 
-## Future Roadmap
-
-### Short-term Goals
-
-- [ ] Implement MQTT integration
-- [ ] Add user authentication
-- [ ] Improve mobile experience
-- [ ] Add data export functionality
-
-### Long-term Vision
-
-- [ ] Mobile app integration
-- [ ] Advanced analytics
-- [ ] Machine learning for optimization
-- [ ] Multi-user support with roles
-
----
-
 ## Browser Compatibility
 
 The dashboard is tested and works on:
@@ -365,6 +384,16 @@ We welcome contributions! Please follow these steps:
 3. Make your changes
 4. Submit a pull request
 
+### To contribute or extend the project
+
+   1. Edit files directly in a code editor (e.g., VS Code).
+   2. Test changes by opening [`index.html`](index.html) in a browser.
+   3. For Chart.js modifications, refer to the [`ensureChart`](assets/js/main.js) and [`updateChartSeries`](assets/js/main.js) functions in [`assets/js/main.js`](assets/js/main.js).
+   4. Style updates can be made in [`assets/css/style.css`](assets/css/style.css), leveraging CSS custom properties for theming.
+   5. Add new features by extending the state in [`ghStates`](assets/js/main.js) or adding event listeners.
+
+   No linting or testing frameworks are currently set up; consider adding ESLint and Jest for code quality.
+
 ### Development Guidelines
 
 - Follow existing code style
@@ -374,37 +403,21 @@ We welcome contributions! Please follow these steps:
 
 ---
 
-## Development
-
-To contribute or extend the project:
-
-1. Edit files directly in a code editor (e.g., VS Code).
-2. Test changes by opening [`index.html`](index.html) in a browser.
-3. For Chart.js modifications, refer to the [`ensureChart`](assets/js/main.js) and [`updateChartSeries`](assets/js/main.js) functions in [`assets/js/main.js`](assets/js/main.js).
-4. Style updates can be made in [`assets/css/style.css`](assets/css/style.css), leveraging CSS custom properties for theming.
-5. Add new features by extending the state in [`ghStates`](assets/js/main.js) or adding event listeners.
-
-No linting or testing frameworks are currently set up; consider adding ESLint and Jest for code quality.
-
----
-
 ## Future Enhancements
 
-- Integrate with MQTT (e.g., via MQTT.js) for real sensor data and device control.
-- Add user authentication and multi-user support with role-based access.
-- Implement data persistence using IndexedDB or a backend API for historical analytics.
-- Add alerts and notifications for out-of-range conditions.
-- Support for additional sensors (e.g., CO2, pH) and actuators.
-- Progressive Web App (PWA) features for offline access and push notifications.
-- API endpoints for data export and integration with external systems.
+### Short-term Goals
 
----
+- [ ] Implement MQTT integration
+- [ ] Add user authentication
+- [ ] Improve mobile experience
+- [ ] Add data export functionality
 
-## Browser Support
+### Long-term Vision
 
-- Modern browsers with ES6 support (Chrome 60+, Firefox 55+, Safari 11+, Edge 79+).
-- Tested on desktop (Windows, macOS, Linux) and mobile (iOS, Android) viewports.
-- Requires JavaScript enabled; no polyfills included.
+- [ ] Mobile app integration
+- [ ] Advanced analytics
+- [ ] Machine learning for optimization
+- [ ] Multi-user support with roles
 
 ---
 
