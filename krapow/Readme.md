@@ -17,6 +17,8 @@ A responsive web-based dashboard for monitoring and controlling multiple smart g
 - [Contributing](#contributing)
 - [License](#license)
 
+---
+
 ## Overview
 
 The Krapow Smart Greenhouse Dashboard provides real-time monitoring and control for up to 10 smart greenhouses. The system is designed to maintain optimal growing conditions for Thai basil through precise environmental control and monitoring.
@@ -29,37 +31,46 @@ The Krapow Smart Greenhouse Dashboard provides real-time monitoring and control 
 - Scalable architecture for multiple greenhouse units
 - Responsive design for access on any device
 
+---
+
 ## Key Features
 
 ### 1. Multi-Greenhouse Management
+
 - Monitor and control up to 10 individual greenhouses
 - Quick switching between greenhouse units
 - Individual status overview for each unit
 
 ### 2. Environmental Monitoring
+
 | Parameter | Range | Optimal Range |
-|-----------|-------|---------------|
-| Temperature | 15-40°C | 24-28°C |
-| Humidity | 20-95% | 55-70% |
-| Soil Moisture | 0-100% | 35-55% |
-| Light | 0-100% | 12-16h photoperiod |
+| :-------: | :-------: | :-------: |
+| `Temperature` | 15-40°C | 24-28°C |
+| `Humidity` | 20-95% | 55-70% |
+| `Soil Moisture` | 0-100% | 35-55% |
+| `Light` | 0-100% | 12-16h photoperiod |
 
 ### 3. Control Systems
+
 - **Pump Control**: Manage irrigation systems
 - **Fan Control**: Regulate temperature and airflow
 - **Lighting Control**: Adjust grow lights
 - **Misting System**: Control humidity levels
 
 ### 4. Data Visualization
+
 - Real-time charts for all metrics
 - Historical data trends
 - Visual indicators for out-of-range conditions
 
 ### 5. User Interface
+
 - Clean, intuitive dashboard
 - Responsive design for all devices
 - Accessibility compliant (WCAG 2.1)
 - Real-time action logging
+
+---
 
 ## System Architecture
 
@@ -101,12 +112,14 @@ graph TD
 4. View re-renders to reflect changes
 5. (Future) Commands sent to physical devices via MQTT
 
+---
+
 ## Technical Implementation
 
 ### Core Technologies
 
 | Technology | Purpose | Version |
-|------------|---------|---------|
+| :--------: | :------- | :-------: |
 | HTML5 | Structure & Semantics | 5.3 |
 | CSS3 | Styling & Layout | 3.0 |
 | JavaScript | Interactivity | ES6+ |
@@ -125,9 +138,11 @@ graph TD
 - VS Code recommended for development
 - Browser DevTools for debugging
 
-## Project Structure
+---
 
-```
+## Repository Structure
+
+```text
 Krapow/
 ├── index.html                 # Main application entry point
 ├── README.md                  # Project documentation
@@ -173,9 +188,12 @@ Key files:
 - [`assets/css/style.css`](assets/css/style.css): Comprehensive stylesheet defining the soft green theme, responsive breakpoints, and UI components.
 - [`assets/js/main.js`](assets/js/main.js): Core logic for state management, rendering, event handling, and mock data updates.
 
+---
+
 ## Installation Guide
 
 ### Prerequisites
+
 - Modern web browser (Chrome, Firefox, Safari, or Edge)
 - Git (for development)
 - Node.js (optional, for development server)
@@ -183,14 +201,17 @@ Key files:
 ### Quick Start
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/panuwat.github.io.git
    cd panuwat.github.io/krapow
    ```
 
 2. Open in browser:
+
    - Double-click `index.html` or
    - Use a local web server:
+
      ```bash
      # Python 3
      python -m http.server 8000
@@ -210,6 +231,8 @@ http-server -p 8000
 ```
 
 Then open `http://localhost:8000` in your browser.
+
+---
 
 ## User Guide
 
@@ -235,12 +258,14 @@ The dashboard is organized into several key sections:
 ### Basic Operations
 
 #### Viewing Greenhouse Data
+
 1. Select a greenhouse using the tabs (KP 1-10)
 2. View current metrics in the gauges
 3. Check the temperature trend in the chart
 4. Review system status in the log panel
 
 #### Controlling Devices
+
 1. Select the desired greenhouse
 2. Choose operation mode:
    - **On/Off**: Manual control
@@ -252,19 +277,19 @@ The dashboard is organized into several key sections:
 ### Advanced Features
 
 #### Data Visualization
+
 - Hover over chart points for detailed values
 - Click and drag to zoom
 - Double-click to reset zoom
 - Toggle metrics using the legend
 
 #### Keyboard Shortcuts
+
 - `1-0`: Switch between greenhouses
 - `P`: Toggle Pump
 - `F`: Toggle Fan
 - `L`: Toggle Light
 - `M`: Toggle Misting
-
-## Development Setup
 
 ### Project Structure
 
@@ -294,19 +319,25 @@ graph TD
 4. Test all control functions
 5. Verify data updates
 
+---
+
 ## Future Roadmap
 
 ### Short-term Goals
+
 - [ ] Implement MQTT integration
 - [ ] Add user authentication
 - [ ] Improve mobile experience
 - [ ] Add data export functionality
 
 ### Long-term Vision
+
 - [ ] Mobile app integration
 - [ ] Advanced analytics
 - [ ] Machine learning for optimization
 - [ ] Multi-user support with roles
+
+---
 
 ## Browser Compatibility
 
@@ -318,9 +349,12 @@ The dashboard is tested and works on:
 - Edge 90+
 
 ### Known Issues
+
 - Limited offline functionality
 - No data persistence between sessions
 - Basic error handling
+
+---
 
 ## Contributing
 
@@ -332,34 +366,13 @@ We welcome contributions! Please follow these steps:
 4. Submit a pull request
 
 ### Development Guidelines
+
 - Follow existing code style
 - Write clear commit messages
 - Document new features
 - Test thoroughly
 
-## License
-
-MIT License
-
-Copyright (c) 2025 Panuwat Sangketkit
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+---
 
 ## Development
 
@@ -373,6 +386,8 @@ To contribute or extend the project:
 
 No linting or testing frameworks are currently set up; consider adding ESLint and Jest for code quality.
 
+---
+
 ## Future Enhancements
 
 - Integrate with MQTT (e.g., via MQTT.js) for real sensor data and device control.
@@ -383,18 +398,20 @@ No linting or testing frameworks are currently set up; consider adding ESLint an
 - Progressive Web App (PWA) features for offline access and push notifications.
 - API endpoints for data export and integration with external systems.
 
+---
+
 ## Browser Support
 
 - Modern browsers with ES6 support (Chrome 60+, Firefox 55+, Safari 11+, Edge 79+).
 - Tested on desktop (Windows, macOS, Linux) and mobile (iOS, Android) viewports.
 - Requires JavaScript enabled; no polyfills included.
 
-## Contributing
-
-Contributions are welcome! Please fork the repository, create a feature branch, and submit a pull request. Ensure code follows ES6+ standards and includes comments for complex logic.
+---
 
 ## License
 
 Copyright © 2025 Panuwat Sangketkit
 
 This project is licensed under the [MIT License](LICENSE).
+
+---
